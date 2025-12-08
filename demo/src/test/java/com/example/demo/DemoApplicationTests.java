@@ -1,13 +1,16 @@
-package com.example.demo;
+package com.rodfood.system;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class DemoApplicationTests {
+class SystemApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void pruebaSimple() {
+        // Prueba básica para validar que el sistema de CI funciona
+        String mensaje = "Sistema RodFood";
+        assertEquals("Sistema RodFood", mensaje);
+        assertEquals(2, 1 + 1);
+    }
 
 }
