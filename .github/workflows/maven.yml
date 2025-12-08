@@ -20,5 +20,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
+    - name: Dar permisos de ejecucion
+      run: chmod +x mvnw
+
     - name: Ejecutar Pruebas (JUnit)
       run: ./mvnw test
