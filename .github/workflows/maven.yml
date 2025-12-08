@@ -20,5 +20,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    - name: Ejecutar Pruebas (Directo)
+    - name: Ejecutar Pruebas (Directo con Maven)
       run: mvn test
