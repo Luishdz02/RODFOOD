@@ -3,7 +3,7 @@
 ## 📋 Descripción del Proyecto
 Este proyecto es un **Sistema Web Interno** desarrollado para la empresa **RODFOOD**. Su objetivo es digitalizar y automatizar los procesos críticos de gestión que actualmente se realizan de forma manual. 
 
-El sistema aborda las siguientes problemáticas:
+El sistema aborda las siguientes problemáticas:   
 **Pedidos Manuales:** Eliminación de errores en órdenes y comandas en papel.
 **Inventario Desactualizado:** Control de stock y mermas en tiempo real.
 **Facturación Lenta:** Automatización de emisión de CFDI y reportes contables.
