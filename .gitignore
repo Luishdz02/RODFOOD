@@ -1,0 +1,38 @@
+# --- Java & Maven ---
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# --- IDEs (Entornos de Desarrollo) ---
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.settings/
+.classpath
+.project
+bin/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# --- Sistemas Operativos ---
+.DS_Store
+Thumbs.db
+
+# --- Spring Boot & Logs ---
+logs/
+*.log
+!maven-wrapper.jar
+
+# --- Seguridad (IMPORTANTE) ---
+# Ignorar configuraciones locales que puedan tener contraseñas reales
+# Se recomienda usar variables de entorno en producción
+application-local.properties
+.env
