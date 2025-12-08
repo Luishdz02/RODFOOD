@@ -20,5 +20,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    - name: Ejecutar Pruebas (Directo con Maven)
-      run: mvn test
+    - name: Ejecutar Pruebas (En carpeta demo)
+   
+      run: mvn -f demo/pom.xml test
