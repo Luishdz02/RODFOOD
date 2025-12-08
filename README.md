@@ -40,7 +40,7 @@ Enfoque en administración y fiscalización.
     ```
 
 2.  **Configuración de Base de Datos:**
-    Crea una base de datos local y actualiza el archivo `application.properties` con tus credenciales.
+
 
 3.  **Ejecutar la aplicación:**
     ```bash
