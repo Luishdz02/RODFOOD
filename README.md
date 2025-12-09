@@ -1,6 +1,6 @@
 # RODFOOD - Sistema de Gestión de Restaurante
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 Este proyecto es un **Sistema Web Interno** desarrollado para la empresa **RODFOOD**. Su objetivo es digitalizar y automatizar los procesos críticos de gestión que actualmente se realizan de forma manual. 
 
 El sistema aborda las siguientes problemáticas:   
@@ -8,7 +8,7 @@ El sistema aborda las siguientes problemáticas:
 **Inventario Desactualizado:** Control de stock y mermas en tiempo real.
 **Facturación Lenta:** Automatización de emisión de CFDI y reportes contables.
 
-## 🏗 Arquitectura del Sistema
+##  Arquitectura del Sistema
 El proyecto está diseñado para ser desplegado en la nube, dado que la empresa no cuenta con infraestructura de servidores propia.
 
 * **Frontend:** HTML5, CSS3 (Bootstrap), JavaScript (Diseño responsivo para Tablets/Cajeros).
@@ -17,7 +17,7 @@ El proyecto está diseñado para ser desplegado en la nube, dado que la empresa 
 * **Facturación:** Integración con API de PAC autorizado.
 * **CI/CD:** Travis CI (Pruebas unitarias con JUnit).
 
-## 🚀 Módulos y Funcionalidades
+##  Módulos y Funcionalidades
 El desarrollo se divide en dos etapas de madurez (Milestones):
 
 ### 1. Etapa BETA (Core Development)
