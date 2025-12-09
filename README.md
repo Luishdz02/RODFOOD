@@ -31,7 +31,7 @@ Enfoque en administración y fiscalización.
 * **Módulo de Facturación:** Generación de facturas electrónicas y conexión con API externa.
 * **Reportes:** Exportación de datos a Excel y alertas de stock mínimo.
 
-## 🛠 Instalación y Configuración Local
+##  Instalación y Configuración Local
 
 1.  **Clonar el repositorio:**
     ```bash
@@ -52,7 +52,7 @@ Enfoque en administración y fiscalización.
     ./mvnw test
     ```
 
-## 🌳 Flujo de Trabajo (Gitflow)
+##  Flujo de Trabajo (Gitflow)
 Este proyecto sigue una estrategia de ramas estricta:
 
 * `master`: Código de producción (GA). Solo acepta Pull Requests desde `develop`.
@@ -61,7 +61,7 @@ Este proyecto sigue una estrategia de ramas estricta:
 
 
 
-## 👤 Autor
+##  Autor
 **Luis Alberto Hernández Avilés** 
 * Matrícula: 07098514
 * Curso: Taller de Productividad basada en herramientas tecnológicas.
