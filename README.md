@@ -1,103 +1,55 @@
 # RODFOOD - Sistema de Gestión de Restaurante
 
-## 📋 Descripción del Proyecto
-Este proyecto es un **Sistema Web Interno** desarrollado para la empresa **RODFOOD**. Su objetivo es digitalizar y automatizar los procesos críticos de gestión que actualmente se realizan de forma manual. 
+![Build Status](https://github.com/Luishdz02/RODFOOD/actions/workflows/maven.yml/badge.svg) ![Java Version](https://img.shields.io/badge/Java-17-blue) ![Status](https://img.shields.io/badge/Status-BETA-orange)
 
-El sistema aborda las siguientes problemáticas:   
-**Pedidos Manuales:** Eliminación de errores en órdenes y comandas en papel.
-**Inventario Desactualizado:** Control de stock y mermas en tiempo real.
-**Facturación Lenta:** Automatización de emisión de CFDI y reportes contables.
+##  Resumen Ejecutivo
 
-## 🏗 Arquitectura del Sistema
-El proyecto está diseñado para ser desplegado en la nube, dado que la empresa no cuenta con infraestructura de servidores propia.
+### Descripción
+RODFOOD es un sistema web interno diseñado para centralizar y automatizar la operación diaria del restaurante. El proyecto busca eliminar la gestión manual actual para transicionar a una administración digital eficiente.
 
-* **Frontend:** HTML5, CSS3 (Bootstrap), JavaScript (Diseño responsivo para Tablets/Cajeros).
-* **Backend:** Java (Spring Boot).
-* **Base de Datos:** MySQL/PostgreSQL (Cloud Hosted).
-* **Facturación:** Integración con API de PAC autorizado.
-* **CI/CD:** Travis CI (Pruebas unitarias con JUnit).
+### Problema Identificado
+Actualmente, la empresa gestiona sus pedidos, inventarios y facturación mediante libretas y Excel, lo que ocasiona:
+* Errores humanos en la toma de órdenes y cobros.
+* Descontrol en el inventario (ingredientes agotados sin aviso).
+* Pérdida de tiempo en la consolidación de reportes y facturación lenta.
 
-## 🚀 Módulos y Funcionalidades
-El desarrollo se divide en dos etapas de madurez (Milestones):
+### Solución Propuesta
+Implementación de una aplicación web modular que conecta al personal de caja, cocina y administración en tiempo real.
+* **Módulo de Pedidos:** Digitaliza la comanda y notifica a cocina.
+* **Módulo de Inventario:** Descuenta insumos automáticamente con cada venta.
+* **Módulo de Facturación:** Genera CFDIs conectándose a un PAC externo.
 
-### 1. Etapa BETA (Core Development)
-Enfoque en la operación diaria interna.
-* **Módulo de Pedidos:** Interfaz para cajeros, creación de órdenes y notificación a cocina.
-* **Módulo de Inventario:** Registro de insumos y descuento automático de stock al vender.
-* **Seguridad:** Autenticación de empleados y respaldos diarios de base de datos.
-
-### 2. Etapa GA (General Availability)
-Enfoque en administración y fiscalización.
-* **Módulo de Facturación:** Generación de facturas electrónicas y conexión con API externa.
-* **Reportes:** Exportación de datos a Excel y alertas de stock mínimo.
-
-## 🛠 Instalación y Configuración Local
-
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone [https://github.com/Luishdz02/RODFOOD-System.git](https://github.com/Luishdz02/RODFOOD-System.git)
-    cd RODFOOD-System
-    ```
-
-2.  **Configuración de Base de Datos:**
-
-
-3.  **Ejecutar la aplicación:**
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-
-4.  **Ejecutar Pruebas (JUnit):**
-    ```bash
-    ./mvnw test
-    ```
-
-## 🌳 Flujo de Trabajo (Gitflow)
-Este proyecto sigue una estrategia de ramas estricta:
-
-* `master`: Código de producción (GA). Solo acepta Pull Requests desde `develop`.
-* `develop`: Rama principal de integración (BETA).
-* `feature/nombre-tarea`: Ramas para cada requerimiento específico (ej. `feature/login-usuario`).
-
-
-
-## 👤 Autor
-**Luis Alberto Hernández Avilés** 
-* Matrícula: 07098514
-* Curso: Taller de Productividad basada en herramientas tecnológicas.
-* Tecmilenio 
-
----
-*Este proyecto es parte de una actividad académica con fines de implementación real bajo consentimiento de la empresa RODFOOD*
+### Arquitectura
+El sistema utiliza una arquitectura MVC desplegada en la nube.
+* **Frontend:** HTML5/Bootstrap (Diseño responsivo para tablets).
+* **Backend:** Spring Boot (Java 17).
+* **Base de Datos:** MySQL (Cloud).
+* **Integración:** API REST para facturación electrónica.
 
 ```mermaid
 graph TD
-    User((Cajero / Mesero))
-    Admin((Administrador))
+    User((Cajero))
+    Admin((Admin))
 
     subgraph Sistema_RODFOOD [Sistema Web Interno]
         UI[Interfaz Web / Tablets]
         
-        subgraph Logica [Módulos Backend]
-            Orders[Módulo de Pedidos]
-            Inventory[Módulo de Inventario]
-            Billing[Módulo de Facturación]
+        subgraph Backend [Lógica de Negocio]
+            Orders[Módulo Pedidos]
+            Inv[Módulo Inventario]
+            Bill[Módulo Facturación]
         end
         
-        DB[(Base de Datos Cloud)]
+        DB[(Base de Datos MySQL)]
     end
 
-    PAC[API Facturación - SAT]
+    PAC[API Facturación SAT]
 
     User --> UI
     Admin --> UI
     UI --> Orders
-    
+    Orders --> Inv
+    Orders --> Bill
     Orders --> DB
-    Orders --> Inventory
-    Orders --> Billing
-    
-    Inventory --> DB
-    Billing --> PAC
-    PAC --> Billing
-```
+    Inv --> DB
+    Bill --> PAC
