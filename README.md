@@ -70,16 +70,15 @@ Este proyecto sigue una estrategia de ramas estricta:
 ---
 *Este proyecto es parte de una actividad académica con fines de implementación real bajo consentimiento de la empresa RODFOOD*
 
+```mermaid
 graph TD
-    %% Definición de Actores
     User((Cajero / Mesero))
     Admin((Administrador))
 
-    %% Sistema RODFOOD
     subgraph Sistema_RODFOOD [Sistema Web Interno]
         UI[Interfaz Web / Tablets]
         
-        subgraph Logica_Negocio [Módulos Backend]
+        subgraph Logica [Módulos Backend]
             Orders[Módulo de Pedidos]
             Inventory[Módulo de Inventario]
             Billing[Módulo de Facturación]
@@ -88,18 +87,17 @@ graph TD
         DB[(Base de Datos Cloud)]
     end
 
-    %% Servicios Externos
     PAC[API Facturación - SAT]
 
-    %% Relaciones
-    User -->|Ingresa Orden| UI
-    Admin -->|Consulta Reportes| UI
-    UI -->|Envía Datos| Orders
+    User --> UI
+    Admin --> UI
+    UI --> Orders
     
-    Orders -->|1. Registra Venta| DB
-    Orders -->|2. Descuenta Insumos| Inventory
-    Orders -->|3. Datos para CFDI| Billing
+    Orders --> DB
+    Orders --> Inventory
+    Orders --> Billing
     
-    Inventory -->|Actualiza Stock| DB
-    Billing -->|Solicita Timbrado| PAC
-    PAC -->|Devuelve XML/PDF| Billing
+    Inventory --> DB
+    Billing --> PAC
+    PAC --> Billing
+```
